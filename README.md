@@ -1,21 +1,71 @@
-# Gmail Email Sorter by Domain
+# Sort Emails by Domain - Google Apps Script Documentation
 
-This Google Apps Script sorts Gmail inbox threads based on the sender's email domain. It automatically labels threads based on the domain of the email sender, which helps organize the inbox for better management.
+This script automatically sorts your Gmail inbox by grouping emails into labels based on their sender's domain. For example, emails from john@example.com will be grouped under the label example.com.
 
-## Features
-- Sorts email threads by the domain of the sender’s email address.
-- Creates a new label for each domain (if it doesn’t already exist).
-- Applies the label to the email threads of the sender from that domain.
-- Handles emails in the format of "Name <email@domain.com>" and regular email addresses.
+## How It Works
+1. It scans all the threads in your Gmail inbox.
+2. For each email thread, it checks the domain of the sender's email address.
+3. If it finds an email from a new domain, it creates a new label for that domain (if one doesn't already exist).
+4. It then assigns that label to the email thread.
 
-## Requirements
+## What Do You Need to Use This Script?
 - A Gmail account with access to Google Apps Script.
+- Access to Google Apps Script through your Google account.
 
-## Setup
-1. Open your [Google Apps Script editor](https://script.google.com).
-2. Create a new project or use an existing one.
-3. Copy and paste the script provided below into the script editor.
-4. Save the script and run the `sortEmailsByDomain` function to begin sorting emails by domain.
+## How to Use
+
+### 1. Open Google Apps Script:
+- Go to [Google Apps Script](https://script.google.com).
+- Create a new project by clicking on **New Project**.
+
+### 2. Paste the Script:
+- In the new project, delete any default code in the script editor.
+- Copy the entire script provided below and paste it into the editor.
+
+### 3. Save the Script:
+- Click on **File** → **Save** and give your project a name.
+
+### 4. Run the Script:
+- To run the script, click the **Run** button (the triangle icon at the top of the screen).
+- The script will start processing your inbox, creating labels, and organizing your threads.
+
+### 5. Grant Permissions:
+- The first time you run the script, you may be prompted to grant permissions for the script to access your Gmail account.
+- Review the permissions, and click **Allow** to give the script access to your Gmail.
+
+### 6. Check Your Gmail:
+- Once the script finishes running, you will find that emails from the same domain are grouped under their respective labels in your Gmail.
+
+
+
+
+## Running the Script Periodically
+
+To have the script run automatically at certain intervals (e.g., every day, week, etc.), follow these steps to set up a trigger:
+
+### 1. Open the Script Editor:
+- In your Google Apps Script project, go to the **Triggers** menu by clicking on the clock icon on the left side of the screen, or click on **Edit** → **Current project's triggers**.
+
+### 2. Set Up a New Trigger:
+- Click **+ Add Trigger** in the bottom-right corner.
+- A new window will appear to configure the trigger.
+
+### 3. Configure Trigger Settings:
+- **Choose which function to run**: Select `sortEmailsByDomain` (the main function of the script).
+- **Choose which deployment should run**: Select **Head** (this refers to the current version of your script).
+- **Select event source**: Choose **Time-driven**.
+- **Select type of time-based trigger**: You can choose one of the following:
+  - **Minutes timer**: Run every 5, 10, 15, 30 minutes, etc.
+  - **Hour timer**: Run every hour, 2 hours, etc.
+  - **Day timer**: Run once a day at a specific time.
+  - **Week timer**: Run once a week on a specific day and time.
+  - **Month timer**: Run once a month on a specific day and time.
+
+### 4. Save the Trigger:
+- After configuring the trigger, click **Save**.
+- The script will now run automatically at the set interval.
+
+
 
 ## Script Overview
 
